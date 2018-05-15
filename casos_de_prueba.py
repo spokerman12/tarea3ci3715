@@ -19,7 +19,16 @@ class FuncionTestCase(unittest.TestCase):
 
     def test_SeguridadExists(self) -> 'void':
         prueba = Seguridad()
-        #assert(True)
+
+    def test_registrarUsuarioExists(self) :
+        S = Seguridad()
+        S.registrarUsuario("prueba@example.gg","clave","clave")
+
+    def test_ingresarUsuarioExists(self) :
+        S = Seguridad()
+        S.ingresarUsuario("prueba@example.gg","clave")
+
+    
 
 if __name__ == "__main__":
     unittest.main()

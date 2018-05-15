@@ -19,3 +19,15 @@ class Seguridad():
 
     def __init__(self):
         self.usuarios = {}
+
+    def registrarUsuario(self, usuario, clave1, clave2):
+        #assert(not(usuario in self.usuarios.keys()))
+        #assert(clave1 == clave2)
+        if usuario in self.usuarios.keys() or clave1 != clave2 :
+            return False
+        self.usuarios[usuario] = clave1
+        return True
+
+    def ingresarUsuario(self, usuario, clave) :
+        print("Usuario aceptado")
+        return True
