@@ -27,8 +27,25 @@ class Seguridad():
             print("Correo electronico invalido. No sigue el formato")
             return False
 
+        if not(8 <= len(clave1) <= 16) :
+            print("Clave invalida. Longitud debe estar entre 8 y 16 caracteres")
+            return False
+
         if not(re.match('[^\W_]',clave1)):
             print("Clave invalida. Contiene caracteres especiales")
+            return False
+
+        m = 0
+        M = 0
+        for a in list(clave1) :
+            if a.isupper() :
+                M+=1
+            if a.islower() :
+                m+=1
+
+        if M == 0 or m == 0 or m+M < 3 :
+            print("Clave invalida. Debe incluir al menos 3 letras, una mayuscula y una minuscula")
+            return False
 
         if usuario in self.usuarios.keys():
             print("Correo electronico invalido. Ya esta registrado")
