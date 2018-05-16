@@ -37,14 +37,17 @@ class Seguridad():
 
         m = 0
         M = 0
+        d = False
         for a in list(clave1) :
             if a.isupper() :
                 M+=1
             if a.islower() :
                 m+=1
+            if a.isdigit():
+                d = True
 
-        if M == 0 or m == 0 or m+M < 3 :
-            print("Clave invalida. Debe incluir al menos 3 letras, una mayuscula y una minuscula")
+        if M == 0 or m == 0 or m+M < 3 or d == False:
+            print("Clave invalida. Debe incluir un numero y al menos 3 letras, una mayuscula y una minuscula")
             return False
 
         if usuario in self.usuarios.keys():
@@ -60,5 +63,14 @@ class Seguridad():
         return True
 
     def ingresarUsuario(self, usuario, clave) :
-        print("Usuario aceptado")
-        return True
+        print(self.usuarios)
+        if usuario in self.usuarios.keys():
+            if self.usuarios[usuario] == clave[::-1]:
+                print("Usuario aceptado")
+                return True
+            else:
+                print("Clave invalida")
+                return False
+        else:
+            print("Usuario invalido")
+            return False

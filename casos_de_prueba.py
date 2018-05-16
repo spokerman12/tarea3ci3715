@@ -95,5 +95,40 @@ class FuncionTestCase(unittest.TestCase):
         S = Seguridad()
         self.assertFalse(S.registrarUsuario("prueba@example.gg","0123Cla789123Cla7","0123Cla789123Cla7"))
 
+    def test_ClaveMinusculas(self) :
+        S = Seguridad()
+        self.assertFalse(S.registrarUsuario("prueba@example.gg","asdfghjk1","asdfghjk1"))
+
+    def test_ClaveMayusculas(self) :
+        S = Seguridad()
+        self.assertFalse(S.registrarUsuario("prueba@example.gg","ASDFGHJK1","ASDFGHJK1"))
+
+    def test_Clave1May1min(self) :
+        S = Seguridad()
+        self.assertTrue(S.registrarUsuario("prueba@example.gg","ASDFGHJKl1","ASDFGHJKl1"))
+
+    def test_ClaveNoNum(self) :
+        S = Seguridad()
+        self.assertFalse(S.registrarUsuario("prueba@example.gg","ASDFGHJKl","ASDFGHJKl"))
+
+    def test_ClaveSoloNum1Letra(self) :
+        S = Seguridad()
+        self.assertFalse(S.registrarUsuario("prueba@example.gg","1234567A","1234567A"))
+
+    def test_ingresarUsuarioCorrecto(self) :
+        S = Seguridad()
+        S.registrarUsuario("prueba@example.gg","1234567Aaa","1234567Aaa")
+        self.assertTrue(S.ingresarUsuario("prueba@example.gg","1234567Aaa"))
+
+    def test_ingresarUsuarioInexistente(self) :
+        S = Seguridad()
+        S.registrarUsuario("prueba@example.gg","1234567Aaa","1234567Aaa")
+        self.assertFalse(S.ingresarUsuario("manolo@example.gg","1234567Aaa"))
+
+    def test_ingresarUsuarioClaveIncorrecta(self) :
+        S = Seguridad()
+        S.registrarUsuario("prueba@example.gg","1234567Aaa","1234567Aaa")
+        self.assertFalse(S.ingresarUsuario("prueba@example.gg","0234567Aaa"))
+
 if __name__ == "__main__":
     unittest.main()
