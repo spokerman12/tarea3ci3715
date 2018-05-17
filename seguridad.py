@@ -15,6 +15,8 @@ Fecha:/05/2018.
 """
 import re
 
+
+
 class Seguridad():
 
     def __init__(self):
@@ -96,3 +98,19 @@ class Seguridad():
         else:
             print("Usuario invalido")
             return False
+
+
+S = Seguridad()
+
+while True:
+	funcion = input("Para registro escriba 0. Para ingreso escriba otra cosa: ")
+	if funcion == '0':
+		usr = input("Ingrese email: ")
+		clv1 = input("Ingrese clave: ")
+		clv2 = input("Ingrese clave nuevamente: ")
+		S.registrarUsuario(usr,clv1,clv2)
+	else: 
+		usr = input("Ingrese email: ")
+		clv = input("Ingrese clave: ")
+		S.ingresarUsuario(usr,clv)
+	
