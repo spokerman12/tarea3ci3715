@@ -29,7 +29,7 @@ class Seguridad():
     """
     def registrarUsuario(self, usuario, clave1, clave2):
         # Comprobamos si el email sigue el estandar .
-        if not (re.match('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$',usuario)):
+        if not (re.fullmatch('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$',usuario)):
             print("Correo electronico invalido. No sigue el formato")
             return False
         
@@ -39,7 +39,7 @@ class Seguridad():
             return False
 
         # Comprobamos que la clave solo contenga caracteres alfanumericos (no especiales).
-        if not(re.match('[^\W_]',clave1)):
+        if not(re.fullmatch('[^\W_]*',clave1)):
             print("Clave invalida. Contiene caracteres especiales")
             return False
 
