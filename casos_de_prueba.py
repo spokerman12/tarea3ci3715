@@ -2,14 +2,14 @@
 """
 Titulo: casos_de_prueba.py
 
-Descripcion:
+Descripcion: Suite de pruebas para PyUnit
 
 Autores:Leonardo Lopez     14-10576 
         Daniel Francis     12-10863
 
 Equipo: Null Pointer Exception
 
-Fecha: 09/05/2018.
+Fecha: 17/05/2018.
 """
 
 import unittest
